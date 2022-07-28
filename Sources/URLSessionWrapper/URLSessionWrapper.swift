@@ -15,9 +15,9 @@ public struct URLSessionWrapper {
     let handleRequest: ((Request) async throws -> Response)
     
     public struct Request {
-        public let url: URL
+        public var url: URL
         public let httpMethod: String
-        public let headers: [String: String]
+        public var headers: [String: String]
         
         public init(url: URL, httpMethod: String = "get", headers: [String: String] = [:]) {
             self.url = url
