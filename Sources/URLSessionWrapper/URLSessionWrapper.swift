@@ -16,8 +16,14 @@ public struct URLSessionWrapper {
     
     public struct Request {
         public let url: URL
-        public let httpMethod = "get"
-        public var headers: [String: String] = [:]
+        public let httpMethod: String
+        public let headers: [String: String]
+        
+        public init(url: URL, httpMethod: String = "get", headers: [String: String] = [:]) {
+            self.url = url
+            self.httpMethod = httpMethod
+            self.headers = headers
+        }
     }
     
     public struct Response {
