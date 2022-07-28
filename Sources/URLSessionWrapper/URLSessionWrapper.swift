@@ -53,6 +53,22 @@ public struct URLSessionWrapper {
         }
     }
     
+    // MARK: - Backward Compatibility
+    
+    public func handleRequest(_ request: Request, completion: @escaping (Result<Response, Error>) -> Void) {
+        Task {
+            do {
+                let response = try await handleRequest(request)
+                completion(.success(response))
+            } catch let error {
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    
+    // MARK: -
+    
 #if !os(Linux)
     
     public static var `default`: Self {
