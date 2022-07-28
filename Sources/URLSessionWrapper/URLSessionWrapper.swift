@@ -12,7 +12,7 @@ import FoundationNetworking
 
 public struct URLSessionWrapper {
     
-    let handleRequest: ((Request) async throws -> Response)
+    public let handleRequest: ((Request) async throws -> Response)
     
     public struct Request {
         public var url: URL
